@@ -159,7 +159,7 @@ We welcome pull requests! Refer to the project’s CONTRIBUTING.md and open disc
 ## Credits
 
 - [APRO](https://www.apro.com/) - Plugin sponsor and partner
-- [ai-agent-sdk-js](https://github.com/APRO-com/ai-agent-sdk-js) - Underlying agent SDK
+- [ATTPs SDK JS](https://github.com/APRO-com/attps-sdk-js) - Underlying agent SDK
 - [ethers.js](https://docs.ethers.io/) - Transaction and contract interaction
 - Community contributors for feedback and testing
 

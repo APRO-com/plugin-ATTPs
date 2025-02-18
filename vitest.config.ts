@@ -11,8 +11,8 @@ export default defineConfig({
                 replacement: '../core/src/index.ts'
             },
             {
-                find: /^ai-agent-sdk-js$/,
-                replacement: '../node_modules/ai-agent-sdk-js/src/index.ts'
+                find: /^attps-sdk-js$/,
+                replacement: '../node_modules/attps-sdk-js/src/index.ts'
             }
         ]
     }

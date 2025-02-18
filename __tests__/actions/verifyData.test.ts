@@ -12,10 +12,10 @@ vi.mock('@elizaos/core', () => ({
     }
 }));
 
-vi.mock('ai-agent-sdk-js', () => {
+vi.mock('attps-sdk-js', () => {
     const mockVerify = vi.fn();
     return {
-        AgentSDK: vi.fn().mockImplementation(() => ({
+        ATTPsSDK: vi.fn().mockImplementation(() => ({
             verify: mockVerify
         }))
     };
@@ -25,7 +25,7 @@ import { vi, describe, it, expect, beforeEach } from 'vitest';
 import type { IAgentRuntime, Memory, State } from '@elizaos/core';
 import { generateObject } from '@elizaos/core';
 import { verifyData } from '../../src/actions/verifyData';
-import { AgentSDK } from 'ai-agent-sdk-js';
+import { ATTPsSDK } from 'attps-sdk-js';
 
 describe('verifyData', () => {
     const mockRuntime: IAgentRuntime = {
@@ -89,7 +89,7 @@ describe('verifyData', () => {
             const mockAgent = {
                 verify: vi.fn().mockResolvedValue(mockTx)
             };
-            vi.mocked(AgentSDK).mockImplementation(() => mockAgent);
+            vi.mocked(ATTPsSDK).mockImplementation(() => mockAgent);
 
             await verifyData.handler(
                 mockRuntime,
@@ -133,7 +133,7 @@ describe('verifyData', () => {
             const mockAgent = {
                 verify: vi.fn().mockRejectedValue(new Error('Verification failed'))
             };
-            vi.mocked(AgentSDK).mockImplementation(() => mockAgent);
+            vi.mocked(ATTPsSDK).mockImplementation(() => mockAgent);
 
             await verifyData.handler(
                 mockRuntime,

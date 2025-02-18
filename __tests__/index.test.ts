@@ -14,8 +14,8 @@ vi.mock('@elizaos/core', () => ({
     }
 }));
 
-vi.mock('ai-agent-sdk-js', () => ({
-    AgentSDK: {
+vi.mock('attps-sdk-js', () => ({
+    ATTPsSDK: {
         createAndRegisterAgent: vi.fn(),
         verify: vi.fn()
     },

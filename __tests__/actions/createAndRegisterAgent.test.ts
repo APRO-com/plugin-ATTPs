@@ -1,9 +1,9 @@
 // Mock declarations must come first
 vi.mock('@elizaos/core');
-vi.mock('ai-agent-sdk-js', () => {
+vi.mock('attps-sdk-js', () => {
     const mockCreateAndRegisterAgent = vi.fn();
     return {
-        AgentSDK: vi.fn().mockImplementation(() => ({
+        ATTPsSDK: vi.fn().mockImplementation(() => ({
             createAndRegisterAgent: mockCreateAndRegisterAgent
         })),
         parseNewAgentAddress: vi.fn().mockReturnValue('test-agent-address')
@@ -18,7 +18,7 @@ import { vi, describe, it, expect, beforeEach } from 'vitest';
 import type { IAgentRuntime, Memory, State } from '@elizaos/core';
 import { generateObject } from '@elizaos/core';
 import { createAndRegisterAgent } from '../../src/actions/createAndRegisterAgent';
-import { AgentSDK } from 'ai-agent-sdk-js';
+import { ATTPsSDK } from 'attps-sdk-js';
 
 describe('createAndRegisterAgent', () => {
     const mockRuntime: IAgentRuntime = {
@@ -74,7 +74,7 @@ describe('createAndRegisterAgent', () => {
             const mockAgent = {
                 createAndRegisterAgent: vi.fn().mockResolvedValue(mockTx)
             };
-            vi.mocked(AgentSDK).mockImplementation(() => mockAgent);
+            vi.mocked(ATTPsSDK).mockImplementation(() => mockAgent);
 
             await createAndRegisterAgent.handler(
                 mockRuntime,
@@ -119,7 +119,7 @@ describe('createAndRegisterAgent', () => {
             const mockAgent = {
                 createAndRegisterAgent: vi.fn().mockRejectedValue(new Error('Registration failed'))
             };
-            vi.mocked(AgentSDK).mockImplementation(() => mockAgent);
+            vi.mocked(ATTPsSDK).mockImplementation(() => mockAgent);
 
             await createAndRegisterAgent.handler(
                 mockRuntime,

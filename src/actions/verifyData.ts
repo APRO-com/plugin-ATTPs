@@ -1,5 +1,5 @@
 import { type Action, composeContext, elizaLogger, generateObject, type HandlerCallback, type IAgentRuntime, type Memory, ModelClass, type State } from "@elizaos/core";
-import { AgentSDK, type VerifyParams } from "ai-agent-sdk-js";
+import { ATTPsSDK, type VerifyParams } from "attps-sdk-js";
 import { verifyDataTemplate } from "../templates";
 import { isVerifyParams, VerifyParamsSchema } from "../types";
 import type { ContractTransactionResponse } from "ethers";
@@ -65,9 +65,9 @@ export const verifyData: Action = {
     }
 
     // Create SDK agent
-    let agent: AgentSDK
+    let agent: ATTPsSDK
     try {
-        agent = new AgentSDK({
+        agent = new ATTPsSDK({
             proxyAddress: runtime.getSetting('ATTPS_PROXY_ADDRESS') ?? process.env.ATTPS_PROXY_ADDRESS,
             rpcUrl: runtime.getSetting('ATTPS_RPC_URL') ?? process.env.ATTPS_RPC_URL,
             privateKey: runtime.getSetting('ATTPS_PRIVATE_KEY') ?? process.env.ATTPS_PRIVATE_KEY,

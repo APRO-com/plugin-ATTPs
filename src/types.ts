@@ -40,14 +40,20 @@ interface Signature {
     r: string
     s: string
     v: 1 | 0 | 27 | 28
-  }
+}
+
+interface Metadata {
+    contentType?: string
+    encoding?: string
+    compression?: string
+}
 
 interface MessagePayload {
     data: string
     dataHash?: string
     signatures: Signature[]
     metadata?: Metadata
-  }
+}
 
 export interface VerifyParams {
     agent: string

@@ -1,6 +1,6 @@
 // Mock declarations must come first
 vi.mock('@elizaos/core');
-vi.mock('ai-agent-sdk-js');
+vi.mock('attps-sdk-js');
 
 import { vi, describe, it, expect, beforeEach } from 'vitest';
 import type { IAgentRuntime, Memory, State } from '@elizaos/core';

@@ -1,7 +1,7 @@
 import type { Action, HandlerCallback, IAgentRuntime, Memory, State } from "@elizaos/core";
 import { composeContext, elizaLogger, generateObject, ModelClass } from "@elizaos/core";
-import { AgentSDK, parseNewAgentAddress } from "ai-agent-sdk-js";
-import type { AgentSettings } from "ai-agent-sdk-js";
+import { ATTPsSDK, parseNewAgentAddress } from "attps-sdk-js";
+import type { AgentSettings } from "attps-sdk-js";
 import { createAgentTemplate } from "../templates";
 import type { ContractTransactionResponse } from "ethers";
 import { AgentSettingsSchema, isAgentSettings } from "../types";
@@ -68,9 +68,9 @@ export const createAndRegisterAgent: Action = {
     }
 
     // Create SDK agent
-    let agent: AgentSDK;
+    let agent: ATTPsSDK;
     try {
-        agent = new AgentSDK({
+        agent = new ATTPsSDK({
             proxyAddress: runtime.getSetting('ATTPS_PROXY_ADDRESS') ?? process.env.ATTPS_PROXY_ADDRESS,
             rpcUrl: runtime.getSetting('ATTPS_RPC_URL') ?? process.env.ATTPS_RPC_URL,
             privateKey: runtime.getSetting('ATTPS_PRIVATE_KEY') ?? process.env.ATTPS_PRIVATE_KEY,

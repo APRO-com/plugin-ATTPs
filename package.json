@@ -20,7 +20,7 @@
     ],
     "dependencies": {
         "@elizaos/core": "workspace:*",
-        "ai-agent-sdk-js": "^0.0.2",
+        "attps-sdk-js": "^0.1.0",
         "ethers": "^6.13.5"
     },
     "scripts": {
