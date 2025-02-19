@@ -1,4 +1,5 @@
-import { defineConfig } from 'vitest/config.js';
+import { defineConfig } from 'vitest/config';
+import path from 'path';
 
 export default defineConfig({
     test: {
@@ -8,11 +9,11 @@ export default defineConfig({
         alias: [
             {
                 find: /^@elizaos\/core$/,
-                replacement: '../core/src/index.ts'
+                replacement: path.resolve(__dirname, '../core/src/index.ts')
             },
             {
                 find: /^attps-sdk-js$/,
-                replacement: '../node_modules/attps-sdk-js/src/index.ts'
+                replacement: path.resolve(__dirname, '../../node_modules/attps-sdk-js/dist/index.cjs')
             }
         ]
     }
